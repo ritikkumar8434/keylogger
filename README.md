@@ -1,71 +1,82 @@
 # keylogger
-🛡️ Keylogger with Email Reporting (Python)
-This project is a simple Python-based keylogger that logs keystrokes from the user's keyboard and sends them to a specified email address after a set threshold is reached. It is designed as a minor academic project to demonstrate the concepts of system-level event handling, file I/O, and secure email automation.
+# 🛡️ Keylogger with Email Reporting (Python)
 
-📌 Features
-✅ Captures keyboard input using the pynput library
+A simple Python-based keylogger designed for academic use that captures keystrokes and automatically sends the log file via email after a certain threshold is reached.
 
-✅ Logs each keypress to a text file (data.txt)
+> ⚠️ **Disclaimer**: This project is intended for **educational purposes only**. Unauthorized use of keyloggers is unethical and **illegal**. Do **not** use this code for any malicious or unauthorized monitoring.
 
-✅ Sends the logged data as an email attachment when 50+ keys are recorded
+---
 
-✅ Utilizes Python’s smtplib and email modules for email delivery
+## 📌 Features
 
-✅ Automatically restarts logging after sending data
+- ⌨️ Captures keyboard input using the `pynput` library
+- 🗂️ Logs keystrokes to a file (`data.txt`)
+- 📧 Sends keystroke logs to a configured email after every 50 key entries
+- 🔄 Automatically restarts logging after sending
+- 💡 Demonstrates basic file I/O, threading, and email automation in Python
 
-📁 Project Structure
-keylogger.py – Core logic for capturing keystrokes and checking the log length
+---
 
-send_mail.py – Handles formatting and sending the email with the log file as an attachment
+## 📁 Project Structure
 
-data.txt – Temporary log file for captured keystrokes
+keylogger-project/ │ ├── keylogger.py # Main script to log keys and trigger email ├── send_mail.py # Sends logged keys as an email attachment ├── data.txt # Temporary log file storing captured keys
 
-🚀 How It Works
-The script monitors keyboard activity.
+---
 
-Each keystroke is saved in a local file.
+## 🚀 How It Works
 
-Once the file contains 50+ keystrokes, the program:
+1. The `keylogger.py` script listens to keyboard input.
+2. Each keystroke is saved in `data.txt`.
+3. Once 50+ keystrokes are recorded:
+   - The log is encoded and attached to an email.
+   - The `send_mail.py` script sends this to the configured recipient.
+   - The script then exits or restarts based on logic.
 
-Attaches the log file to an email
+---
 
-Sends it to the pre-configured recipient
+## 🛠️ Requirements
 
-Stops the current session
+- Python 3.x
+- `pynput` library
 
-⚠️ Disclaimer
-This project is intended for educational purposes only. Unauthorized use of keyloggers is unethical and illegal. Do not use this code for any malicious or unauthorized monitoring.
-
-🔧 Requirements
-Python 3.x
-
-pynput (pip install pynput)
-
-🛠️ Setup
-Clone the repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/keylogger-project.git
-cd keylogger-project
 Install dependencies:
 
-bash
-Copy
-Edit
+```bash
 pip install pynput
-Update the email credentials and recipient in send_mail.py:
+## ⚙️ Setup & Usage
+1.Clone the repository:
+git clone https://github.com/your-username/keylogger-project.git
+cd keylogger-project
+2. Configure email in send_mail.py:
 
-python
-Copy
-Edit
+Replace with your Gmail & app password:
 sender_email = "your_email@gmail.com"
 password = "your_app_password"
 receiver_email = "recipient_email@gmail.com"
-Run the script:
+💡 You must enable 2FA and use an App Password for Gmail.
 
-bash
-Copy
-Edit
+3. Run the keylogger:
 python keylogger.py
+📬 Example Email Output
+Subject: keys from YOUR_COMPUTER_NAME
+
+Attachment: data.text (containing keystrokes)
+
+🧠 Learning Concepts
+Event-driven programming with pynput
+
+File handling and text processing
+
+Secure email automation with smtplib
+
+MIME and email formatting in Python
+
+📄 License
+This project is open source and available under the MIT License.
+
+🙋‍♂️ Author
+Ritik Kumar
+Minor Project | MCA Final Year
+Feel free to connect or contribute!
+
+
