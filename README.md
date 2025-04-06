@@ -76,6 +76,7 @@ This project is open source and available under the MIT License.
 
 🙋‍♂️ Author
 Ritik Kumar
+[Unnatideep](https://www.linkedin.com/in/unnati-deep//)
 Minor Project | MCA Final Year
 Feel free to connect or contribute!
 
